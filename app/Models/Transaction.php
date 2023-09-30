@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
  use Illuminate\Database\Eloquent\SoftDeletes;
+ use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 /**
  * @OA\Schema(
  *      schema="Transaction",
@@ -96,5 +98,8 @@ use Illuminate\Database\Eloquent\Model;
         'deleted_at' => 'nullable'
     ];
 
-    
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

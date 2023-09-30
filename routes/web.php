@@ -21,14 +21,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
 Route::resource('qrcodes', App\Http\Controllers\QrcodeController::class);
 Route::resource('roles', App\Http\Controllers\RolesController::class);
 Route::resource('transactions', App\Http\Controllers\TransactionController::class);
+Route::resource('users', App\Http\Controllers\UserController::class);

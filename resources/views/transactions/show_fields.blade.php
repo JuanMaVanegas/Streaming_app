@@ -1,13 +1,13 @@
 <!-- User Id Field -->
 <div class="col-sm-12">
     {!! Form::label('user_id', 'User Id:') !!}
-    <p>{{ $transaction->user_id }}</p>
+    <p>{{ $transaction->user['product_name'] }} || {{ $transaction->user['email'] }}</p>
 </div>
 
 <!-- Qrcode Owner Id Field -->
 <div class="col-sm-12">
     {!! Form::label('qrcode_owner_id', 'Qrcode Owner Id:') !!}
-    <p>{{ $transaction->qrcode_owner_id }}</p>
+    <p>{{ $transaction->user['qrcode_path'] }}</p>
 </div>
 
 <!-- Qrcode Id Field -->
