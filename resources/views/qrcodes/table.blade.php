@@ -1,6 +1,6 @@
 <div class="card-body p-0">
     <div class="table-responsive">
-        <table class="table" id="qrcodes-table">
+        <table class="table table-bordered" id="qrcodes-table">
             <thead>
             <tr>
                 <th>User Id</th>
@@ -17,7 +17,7 @@
             </thead>
             <tbody>
             @foreach($qrcodes as $qrcode)
-                <tr>
+                <tr >
                     <td>{{ $qrcode->user_id }}</td>
                     <td><a href="{{ $qrcode->website }}">{{ $qrcode->website }}</a></td>
                     <td>{{ $qrcode->company_name }}</td>
@@ -27,20 +27,12 @@
                     <td><p><img src="{{ asset($qrcode->qrcode_path) }}"></p></td>
                     <td><p><img src="{{ asset($qrcode->product_image) }}" style="width:200px"></p></td>
                     <td>{{ $qrcode->amount }}</td>
-                    <td  style="width: 120px">
-                        {!! Form::open(['route' => ['qrcodes.destroy', $qrcode->id], 'method' => 'delete']) !!}
-                        <div class='btn-group'>
-                            <a href="{{ route('qrcodes.show', [$qrcode->id]) }}"
-                               class='btn btn-default btn-xs'>
-                                <i class="far fa-eye"></i>
-                            </a>
-                            <a href="{{ route('qrcodes.edit', [$qrcode->id]) }}"
-                               class='btn btn-default btn-xs'>
-                                <i class="far fa-edit"></i>
-                            </a>
-                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                        </div>
-                        {!! Form::close() !!}
+                    <td style="width: 100%">
+                        <a class="btn btn-info" href="{{ route('qrcodes.show',$qrcode->id) }}"><i class="far fa-eye"></i> Show</a>
+                        <a class="btn btn-primary" href="{{ route('qrcodes.edit',$qrcode->id) }}"><i class="far fa-edit"></i> Edit</a>
+                            {!! Form::open(['method' => 'DELETE','route' => ['qrcodes.destroy', $qrcode->id],'style'=>'display:inline']) !!}
+                                {!! Form::button('<i class="far fa-trash-alt"></i> Delete',['type' => 'submit','class' => 'btn btn-danger', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            {!! Form::close() !!}
                     </td>
                 </tr>
             @endforeach

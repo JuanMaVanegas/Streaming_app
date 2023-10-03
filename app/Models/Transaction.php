@@ -99,7 +99,18 @@ use Illuminate\Database\Eloquent\Model;
     ];
 
     public function user(): BelongsTo
+
     {
+
         return $this->belongsTo(User::class);
+
+    }
+
+    public function qrcode(): BelongsTo
+
+    {
+
+        return $this->belongsTo(Qrcode::class);
+
     }
 }

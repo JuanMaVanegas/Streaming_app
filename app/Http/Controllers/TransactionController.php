@@ -17,6 +17,10 @@ class TransactionController extends AppBaseController
     public function __construct(TransactionRepository $transactionRepo)
     {
         $this->transactionRepository = $transactionRepo;
+        $this->middleware('permission:transaction-list|transaction-create|transaction-edit|transaction-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:transaction-create', ['only' => ['create','store']]);
+        $this->middleware('permission:transaction-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:transaction-delete', ['only' => ['destroy']]);
     }
 
     /**

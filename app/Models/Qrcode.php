@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
  use Illuminate\Database\Eloquent\SoftDeletes;
  use Illuminate\Database\Eloquent\Relations\BelongsTo;
+ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @OA\Schema(
  *      schema="Qrcode",
@@ -133,8 +134,21 @@ use Illuminate\Database\Eloquent\Model;
         'deleted_at' => 'nullable'
     ];
 
-    public function user(): BelongsTo
+    public function users(): BelongsTo
+
     {
+
         return $this->belongsTo(User::class);
+
     }
+
+ 
+
+    public function transactions2(): HasMany
+
+     {
+
+         return $this->hasMany(Transaction::class);
+
+     }
 }

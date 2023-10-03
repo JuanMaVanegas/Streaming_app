@@ -17,6 +17,10 @@ class QrcodeController extends AppBaseController
     public function __construct(QrcodeRepository $qrcodeRepo)
     {
         $this->qrcodeRepository = $qrcodeRepo;
+        $this->middleware('permission:qrcode-list|qrcode-create|qrcode-edit|qrcode-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:qrcode-create', ['only' => ['create','store']]);
+        $this->middleware('permission:qrcode-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:qrcode-delete', ['only' => ['destroy']]);
     }
 
     /**

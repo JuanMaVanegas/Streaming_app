@@ -1,6 +1,6 @@
 <div class="card-body p-0">
     <div class="table-responsive">
-        <table class="table" id="transactions-table">
+        <table class="table table-bordered" id="transactions-table">
             <thead>
             <tr>
                 <th>User Id</th>
@@ -23,20 +23,12 @@
                     <td>{{ $transaction->message }}</td>
                     <td>{{ $transaction->amount }}</td>
                     <td>{{ $transaction->status }}</td>
-                    <td  style="width: 120px">
-                        {!! Form::open(['route' => ['transactions.destroy', $transaction->id], 'method' => 'delete']) !!}
-                        <div class='btn-group'>
-                            <a href="{{ route('transactions.show', [$transaction->id]) }}"
-                               class='btn btn-default btn-xs'>
-                                <i class="far fa-eye"></i>
-                            </a>
-                            <a href="{{ route('transactions.edit', [$transaction->id]) }}"
-                               class='btn btn-default btn-xs'>
-                                <i class="far fa-edit"></i>
-                            </a>
-                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                        </div>
-                        {!! Form::close() !!}
+                    <td>
+                        <a class="btn btn-info" href="{{ route('transactions.show',$transaction->id) }}"><i class="far fa-eye"></i> Show</a>
+                        <a class="btn btn-primary" href="{{ route('transactions.edit',$transaction->id) }}"><i class="far fa-edit"></i> Edit</a>
+                            {!! Form::open(['method' => 'DELETE','route' => ['transactions.destroy', $transaction->id],'style'=>'display:inline']) !!}
+                                {!! Form::button('<i class="far fa-trash-alt"></i> Delete',['type' => 'submit','class' => 'btn btn-danger', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            {!! Form::close() !!}
                     </td>
                 </tr>
             @endforeach

@@ -51,4 +51,45 @@
     {!! Form::label('amount', 'Amount:') !!}
     <p>{{ $qrcode->amount }}</p>
 </div>
-
+<section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Transactions</h1>
+                </div>
+                <br>
+                <table class="table table-bordered" id="user-table">
+                <tr>
+                    <th>Usuario</th>
+                    <th>Transactions Id</th>
+                    <th>Payment_method</th>
+                    <th>Status</th>
+                    <th>Amount</th>
+                </tr>
+                @foreach ($qrcode->transactions2 as $transaction)
+            
+                <tr>
+                    <td>{{ $transaction->user['name'] }}</td>
+                    <td>{{ $transaction->id }}</td>
+                    <td>{{ $transaction->payment_method }}</td>
+                    <td>{{ $transaction->status}}</td>
+                    <td>{{ $transaction->amount }}</td>
+                </tr>
+                 @endforeach
+                <tr>
+                    <td>Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><?php
+                        $suma=0;
+                        foreach ($qrcode->transactions2 as $transaction){
+                            $suma+=Intval($transaction->amount);
+                        }
+                        echo $suma;              
+                    ?> </td>
+                </tr>
+                </table>
+            </div>
+        </div>
+    </section>
