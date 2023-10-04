@@ -142,13 +142,13 @@ use Illuminate\Database\Eloquent\Model;
 
     }
 
- 
-
+   
+    
     public function transactions2(): HasMany
 
      {
 
-         return $this->hasMany(Transaction::class);
+        return $this->hasMany(Transaction::class);
 
      }
 }

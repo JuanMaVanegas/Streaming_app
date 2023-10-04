@@ -1,6 +1,7 @@
 <!-- User Id Field -->
 {!! Form::hidden('user_id', Auth::user()->id, ['class' => 'form-control', 'required']) !!}
 
+
 <!-- Qrcode Owner Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('qrcode_owner_id', 'Qrcode Owner Id:') !!}

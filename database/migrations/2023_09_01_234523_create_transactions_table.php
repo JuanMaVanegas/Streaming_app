@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id('id');
             $table->integer('user_id');
-            $table->integer('qrcode_owner_id')->nullable();
+            $table->integer('qrcode_owner_id');
             $table->integer('qrcode_id');
             $table->string('payment_method')->nullable();
             $table->longText('message')->nullable();
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('status')->default('initiated');
             $table->timestamps();
             $table->softDeletes();
+            
         });
     }
 

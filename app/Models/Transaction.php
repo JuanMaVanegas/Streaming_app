@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
  use Illuminate\Database\Eloquent\SoftDeletes;
  use Illuminate\Database\Eloquent\Relations\BelongsTo;
+ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @OA\Schema(
@@ -87,7 +88,7 @@ use Illuminate\Database\Eloquent\Model;
 
     public static array $rules = [
         'user_id' => 'required',
-        'qrcode_owner_id' => 'nullable',
+        'qrcode_owner_id' => 'required',
         'qrcode_id' => 'required',
         'payment_method' => 'nullable|string|max:255',
         'message' => 'nullable|string',
@@ -99,18 +100,11 @@ use Illuminate\Database\Eloquent\Model;
     ];
 
     public function user(): BelongsTo
-
     {
-
         return $this->belongsTo(User::class);
-
     }
-
     public function qrcode(): BelongsTo
-
-    {
-
+     {
         return $this->belongsTo(Qrcode::class);
-
-    }
+     }
 }

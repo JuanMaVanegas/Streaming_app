@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
   
 class User extends Authenticatable
@@ -78,7 +77,7 @@ class User extends Authenticatable
          return 'remember_token';
      }
  
-     public function transactions(): HasMany
+    public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);
     }

@@ -44,7 +44,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Transactions</h1>
+                    <h1>QrCodes</h1>
                 </div>
                 <br>
                 <table class="table table-bordered" id="user-table">
@@ -55,26 +55,12 @@
                     <th>Amount</th>
                 </tr>
                 @foreach ($transaction->qrcode as $qr)
-            
                 <tr>
-                    <td>{{ $transaction->qr['id'] }}</td>
-                    <td>{{ $transaction->qr['product_name'] }}</td>
-                    <td>{{ $transaction->qr['product_url'] }}</td>
-                    <td>{{ $transaction->amount }}</td>
+                    
                 </tr>
                  @endforeach
                 <tr>
-                    <td>Total</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><?php
-                        $suma=0;
-                        foreach ($transaction->qrcode as $qrcode){
-                            $suma+=Intval($transaction->amount);
-                        }
-                        echo $suma;              
-                    ?> </td>
+                    
                 </tr>
                 </table>
             </div>
