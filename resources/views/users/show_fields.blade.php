@@ -17,7 +17,7 @@
     <br>
     @if($user->getRoleNames()?->isNotEmpty())
         @foreach ($user->getRoleNames() as $v)
-            <label class="badge badge-success">{{ $user->getRoleNames()->first() }}</label>
+        <a href="/roles/{{$user->id}}"><label class="badge badge-success">{{ $user->getRoleNames()->first() }}</label></a>
         @endforeach
     @endif
 </div>
@@ -82,18 +82,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($user->qrcodes as $qrcode)
                         <tr>
-                            <td>
-                                <a href="{{ route('qrcodes.show',$qrcode->id) }}">
-                                {{ $qrcode->id }}  </a>
+                            <<td>
+                                <a href="{{ route('qrcodes.show',$qrcodes->id) }}">
+                                {{ $qrcodes->id }}  </a>
                             </td>
                             <td>
-                                {{ $qrcode->product_name }} 
+                                {{ $qrcodes->product_name }} 
                                 <br> <img src="../{{ $qrcode->product_image }}" width="150px">
                             </td>
-                            <td>{{ $qrcode->amount }} 
+                            <td>{{ $qrcodes->amount }} 
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
