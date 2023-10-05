@@ -85,14 +85,14 @@
                         @foreach ($user->qrcodes as $qrcode)
                         <tr>
                             <<td>
-                                <a href="{{ route('qrcodes.show',$qrcodes->id) }}">
-                                {{ $qrcodes->id }}  </a>
+                                <a href="{{ route('qrcodes.show',$qrcode->id) }}">
+                                {{ $qrcode->id }}  </a>
                             </td>
                             <td>
-                                {{ $qrcodes->product_name }} 
+                                {{ $qrcode->product_name }} 
                                 <br> <img src="../{{ $qrcode->product_image }}" width="150px">
                             </td>
-                            <td>{{ $qrcodes->amount }} 
+                            <td>{{ $qrcode->amount }} 
                             </td>
                         </tr>
                         @endforeach
