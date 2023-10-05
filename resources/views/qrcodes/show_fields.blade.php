@@ -69,8 +69,8 @@
                 @foreach ($qrcode->transactions2 as $transaction)
             
                 <tr>
-                    <td>{{ $transaction->user['name'] }}</td>
-                    <td>{{ $transaction->id }}</td>
+                    <td><a href="{{ route('users.show',$transaction->user['id']) }}">{{ $transaction->user['name'] }}</a></td>
+                    <td><a href="{{ route('transactions.show',$transaction->id) }}">{{ $transaction->id }}</a></td>
                     <td>{{ $transaction->payment_method }}</td>
                     <td>{{ $transaction->status}}</td>
                     <td>{{ $transaction->amount }}</td>

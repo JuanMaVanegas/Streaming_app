@@ -13,9 +13,12 @@
     <td>{{ $user->email }}</td>
     <td>
       @if(!empty($user->getRoleNames()))
-        @foreach($user->getRoleNames() as $v)
-           <label class="badge badge-success">{{ $v }}</label>
-        @endforeach
+      @foreach ($data as $key => $role)
+          <a href="{{ route('roles.show',$role->id) }}"> @foreach($user->getRoleNames() as $v)
+           <label class="badge badge-success">$user->getRoleNames()</label>
+        @endforeach</a>
+      @endforeach
+
       @endif
     </td>
     <td style="width: 30%">

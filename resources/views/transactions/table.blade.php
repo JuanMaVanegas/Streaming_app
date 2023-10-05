@@ -16,7 +16,7 @@
             <tbody>
             @foreach($transactions as $transaction)
                 <tr>
-                    <td>{{ $transaction->user_id }}</td>
+                    <td><a href="{{ route('users.show',$transaction->user_id) }}">{{ $transaction->user_id }}</a></td>
                     <td>{{ $transaction->qrcode_owner_id }}</td>
                     <td>{{ $transaction->qrcode_id }}</td>
                     <td>{{ $transaction->payment_method }}</td>

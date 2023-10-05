@@ -40,4 +40,3 @@
     <p>{{ $transaction->status }}</p>
 </div>
 
-

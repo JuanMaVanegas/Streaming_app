@@ -103,7 +103,7 @@ use Illuminate\Database\Eloquent\Model;
     {
         return $this->belongsTo(User::class);
     }
-    public function qrcodes2(): HasMany
+    public function qrcodes(): HasMany
      {
         return $this->hasMany(Qrcode::class);
      }

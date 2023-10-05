@@ -16,8 +16,9 @@
     <br>
     @if(!empty($user->getRoleNames()))
         @foreach($user->getRoleNames() as $v)
-        <label class="badge badge-success">{{ $v }}</label>
+            <label class="badge badge-success">{{ $v }}</label>
         @endforeach
+
     @endif
 </div>
 
@@ -39,7 +40,7 @@
                 
                 @foreach ($user->transactions as $transaction)
                 <tr>
-                        <td>{{ $transaction->id }}</td>
+                        <td><a href="{{ route('transactions.show',$transaction->id) }}">{{ $transaction->id }}</a></td>
                         <td>{{ $transaction->payment_method }}</td>
                         <td>{{ $transaction->status }}</td>
                         <td>{{ $transaction->amount }}</td>
@@ -62,6 +63,32 @@
                         echo $suma;              
                     ?> </td>
                 </tr>
+                </table>
+            </div>
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Productos</h1>
+                </div>
+                <br>
+                <table class="table table-bordered" id="user-table">
+                <tr>
+                    <th>Producto Id</th>
+                    <th>Producto</th>
+                    <th>amount</th>
+                </tr>
+                @foreach ($user->qrcodes as $qrcode)
+                <tr>
+                    
+                    <td><a href="{{ route('qrcodes.show',$qrcode->id) }}">
+                    {{ $qrcode->id }}  </a>
+                    </td>
+                    <td>
+                       {{ $qrcode->product_name }} 
+                        <br> <img src="../{{ $qrcode->product_image }}" width="150px"></td>
+                    <td>{{ $qrcode->amount }} 
+                    </td>
+                </tr>
+                @endforeach
                 </table>
             </div>
         </div>
