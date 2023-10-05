@@ -40,30 +40,4 @@
     <p>{{ $transaction->status }}</p>
 </div>
 
-<section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>QrCodes</h1>
-                </div>
-                <br>
-                <table class="table table-bordered" id="user-table">
-                <tr>
-                    <th>Qrcode Id</th>
-                    <th>Product Name</th>
-                    <th>Product Image</th>
-                    <th>Amount</th>
-                </tr>
-                @foreach ($transaction->qrcode as $qr)
-                <tr>
-                    
-                </tr>
-                 @endforeach
-                <tr>
-                    
-                </tr>
-                </table>
-            </div>
-        </div>
-    </section>
 

@@ -1,12 +1,10 @@
 <table class="table table-bordered">
   <tr>
-     <th>No</th>
      <th>Name</th>
      <th width="280px">Action</th>
   </tr>
     @foreach ($roles as $key => $role)
     <tr>
-        <td>{{ $role->id }}</td>
         <td>{{ $role->name }}</td>
         <td style="width: 30%">
             <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}"><i class="far fa-eye"></i> Show</a>

@@ -10,7 +10,7 @@ use Spatie\Permission\Models\Permission;
 use DB;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
-    
+use Illuminate\Database\Eloquent\Relations\HasMany;
 class RoleController extends Controller
 {
     /*
@@ -135,5 +135,10 @@ class RoleController extends Controller
         DB::table("roles")->where('id',$id)->delete();
         return redirect()->route('roles.index')
                         ->with('success','Role deleted successfully');
+    }
+    public function users(): HasMany
+
+    {
+        return $this->hasMany(User::class);
     }
 }

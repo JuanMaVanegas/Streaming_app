@@ -15,3 +15,27 @@
     @endif
 </div>
 
+<section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Usuarios</h1>
+                </div>
+                <br>
+                <table class="table table-bordered" id="user-table">
+                <tr>
+                    <th>User Id</th>
+                    <th>Name</th>
+                </tr>
+                @foreach ($role->users as $us)
+
+                <tr>
+                    <td><a href="{{ route('users.show',$us->id) }}"> {{ $us->id }} </a></td>
+                    <td>{{ $us->name }}</td>
+
+                </tr>
+                 @endforeach
+                </table>
+            </div>
+        </div>
+    </section>

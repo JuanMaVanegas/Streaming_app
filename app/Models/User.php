@@ -85,6 +85,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Qrcode::class);
     }
+    public function roles(): HasMany
+    {
+        return $this->hasMany(Roles::class);
+    }
 
     
 }
