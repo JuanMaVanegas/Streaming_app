@@ -1,5 +1,5 @@
-<table class="table table-bordered" id="user-table">
- <tr>
+<table class="table table-striped table-bordered table-hover table-responsive" id="user-table">
+ <tr class="table-primary">
    <th>No</th>
    <th>Name</th>
    <th>Email</th>
@@ -7,21 +7,21 @@
    <th width="280px">Action</th>
  </tr>
  @foreach ($data as $key => $user)
-  <tr>
+  <tr >
     <td>{{ $user->id }}</td>
     <td>{{ $user->name }}</td>
     <td>{{ $user->email }}</td>
     <td>
-      @if(!empty($user->getRoleNames()))
-      @foreach ($data as $key => $role)
-          <a href="{{ route('roles.show',$role->id) }}"> @foreach($user->getRoleNames() as $v)
-           <label class="badge badge-success">$user->getRoleNames()</label>
-        @endforeach</a>
-      @endforeach
+    @if(!empty($user->getRoleNames()))
+        @foreach ($data as $key => $role)
+            <a href="{{ route('roles.show',$role->id) }}"> 
+            <label class="badge badge-success">{{ implode(', ', $user->getRoleNames()->toArray()) }} </label>
+          </a>
+        @endforeach
 
       @endif
     </td>
-    <td style="width: 30%">
+    <td width="50%">
        <a class="btn btn-info" href="{{ route('users.show',$user->id) }}"><i class="far fa-eye"></i> Show</a>
        <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}"><i class="far fa-edit"></i> Edit</a>
         {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
