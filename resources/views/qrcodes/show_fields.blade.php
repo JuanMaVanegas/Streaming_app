@@ -1,7 +1,7 @@
 <!-- User Id Field -->
 <div class="col-sm-12">
     {!! Form::label('user_id', 'User Id:') !!}
-    <p>{{ $qrcode->user_id }}</p>
+    <p> {{ $qrcode->id}} || {{ $qrcode->user_id}}</p>
 </div>
 
 <!-- Website Field -->
@@ -52,11 +52,10 @@
     <p>{{ $qrcode->amount }}</p>
 </div>
 
-<form action="{{route('payment')}}" method="post"> 
+<form action="{{ route('payment') }}" method="post">
     @csrf <!-- protección contra ataques de falsificación de solicitudes entre sitios (CSRF).--> 
-    <input type="hint" name="amount" value="{{ $qrcode->amount }}" readonly onmousedown="return false;"> 
-    <button type="submit">Paypal</button> 
-    <br>
+    <input type="hidden" name="id" value="{{ $qrcode->id }}" readonly onmousedown="return false;">
+    <button type="submit" onclick="this.disabled=true; this.form.submit();">Paypal</button>
 </form>
 
 <section class="content-header">

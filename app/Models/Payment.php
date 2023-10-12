@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Payment extends Model
 {
     use HasFactory;
+
+
+    
+
     public function transactions(): BelongsTo
 
      {

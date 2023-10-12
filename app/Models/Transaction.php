@@ -108,11 +108,8 @@ use Illuminate\Database\Eloquent\Model;
         return $this->hasMany(Qrcode::class);
      }
      public function payments(): BelongsTo
-
      {
- 
-         return $this->belongsTo(Payment::class);
- 
+        return $this->belongsTo(Payment::class);
      }
      
 }

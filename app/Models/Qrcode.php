@@ -6,95 +6,11 @@ use Illuminate\Database\Eloquent\Model;
  use Illuminate\Database\Eloquent\SoftDeletes;
  use Illuminate\Database\Eloquent\Relations\BelongsTo;
  use Illuminate\Database\Eloquent\Relations\HasMany;
-/**
- * @OA\Schema(
- *      schema="Qrcode",
- *      required={"user_id","company_name","product_name","callback_url","product_image","amount"},
- *      @OA\Property(
- *          property="website",
- *          description="",
- *          readOnly=false,
- *          nullable=true,
- *          type="string",
- *      ),
- *      @OA\Property(
- *          property="company_name",
- *          description="",
- *          readOnly=false,
- *          nullable=false,
- *          type="string",
- *      ),
- *      @OA\Property(
- *          property="product_name",
- *          description="",
- *          readOnly=false,
- *          nullable=false,
- *          type="string",
- *      ),
- *      @OA\Property(
- *          property="product_url",
- *          description="",
- *          readOnly=false,
- *          nullable=true,
- *          type="string",
- *      ),
- *      @OA\Property(
- *          property="callback_url",
- *          description="",
- *          readOnly=false,
- *          nullable=false,
- *          type="string",
- *      ),
- *      @OA\Property(
- *          property="qrcode_path",
- *          description="",
- *          readOnly=false,
- *          nullable=true,
- *          type="string",
- *      ),
- *      @OA\Property(
- *          property="product_image",
- *          description="",
- *          readOnly=false,
- *          nullable=false,
- *          type="string",
- *      ),
- *      @OA\Property(
- *          property="amount",
- *          description="",
- *          readOnly=false,
- *          nullable=false,
- *          type="number",
- *          format="number"
- *      ),
- *      @OA\Property(
- *          property="created_at",
- *          description="",
- *          readOnly=true,
- *          nullable=true,
- *          type="string",
- *          format="date-time"
- *      ),
- *      @OA\Property(
- *          property="updated_at",
- *          description="",
- *          readOnly=true,
- *          nullable=true,
- *          type="string",
- *          format="date-time"
- *      ),
- *      @OA\Property(
- *          property="deleted_at",
- *          description="",
- *          readOnly=true,
- *          nullable=true,
- *          type="string",
- *          format="date-time"
- *      )
- * )
- */class Qrcode extends Model
+
+class Qrcode extends Model
 {
-     use SoftDeletes;    public $table = 'qrcodes';
+     use SoftDeletes;    
+    public $table = 'qrcodes';
 
     public $fillable = [
         'user_id',
@@ -133,6 +49,8 @@ use Illuminate\Database\Eloquent\Model;
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
     ];
+
+    
 
     public function users(): BelongsTo
 

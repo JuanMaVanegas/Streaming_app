@@ -13,6 +13,7 @@ class QrcodeController extends AppBaseController
 {
     /** @var QrcodeRepository $qrcodeRepository*/
     private $qrcodeRepository;
+    
 
     public function __construct(QrcodeRepository $qrcodeRepo)
     {

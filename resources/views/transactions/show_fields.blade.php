@@ -1,31 +1,31 @@
 <!-- User Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p><a href="{{ route('users.show',$transaction->user_id) }}">{{ $transaction->user['id'] }} || {{ $transaction->user['email'] }}</a></p>
+    {!! Form::label('Id', 'Id:') !!}
+    <p>{{ $transaction->id}} </p>
 </div>
 
 <!-- Qrcode Owner Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('qrcode_owner_id', 'Qrcode Owner Id:') !!}
-    <p>{{ $transaction->qrcode_owner_id }}</p>
+    {!! Form::label('Payment_id', 'Payment Id:') !!}
+    <p>{{ $transaction->payment_id }}</p>
 </div>
 
 <!-- Qrcode Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('qrcode_id', 'Qrcode Id:') !!}
-    <p>{{ $transaction->qrcode_id }}</p>
+    {!! Form::label('Payer_id', 'Payer Id:') !!}
+    <p>{{ $transaction->payer_id }}</p>
 </div>
 
 <!-- Payment Method Field -->
 <div class="col-sm-12">
-    {!! Form::label('payment_method', 'Payment Method:') !!}
-    <p>{{ $transaction->payment_method }}</p>
+    {!! Form::label('Payer_email', 'Payer Email:') !!}
+    <p>{{ $transaction->payer_email }}</p>
 </div>
 
 <!-- Message Field -->
 <div class="col-sm-12">
-    {!! Form::label('message', 'Message:') !!}
-    <p>{{ $transaction->message }}</p>
+    {!! Form::label('Currency', 'Currency:') !!}
+    <p>{{ $transaction->currency }}</p>
 </div>
 
 <!-- Amount Field -->
@@ -36,7 +36,7 @@
 
 <!-- Status Field -->
 <div class="col-sm-12">
-    {!! Form::label('status', 'Status:') !!}
-    <p>{{ $transaction->status }}</p>
+    {!! Form::label('Payment_status', 'Payment Status:') !!}
+    <p>{{ ucfirst($transaction->payment_status) }}</p>
 </div>
 
