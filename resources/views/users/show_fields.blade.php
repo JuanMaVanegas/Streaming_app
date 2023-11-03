@@ -10,6 +10,20 @@
     {!! Form::label('email', 'Email:') !!}
     <p>{{ $user->email }}</p>
 </div>
+<!-- token Field -->
+<div class="col-sm-12">
+    {!! Form::label('Token', 'Token:') !!}
+    <p>{{ $user->remember_token }}</p>
+</div>
+
+<!-- solicitar token -->
+<div class="col-sm-12">
+    <form method='POST' action="{{ route('generate-token',$user)}}">
+        @csrf
+        @method('POST')
+        <button type="submit" class="btn btn-primary">Generar token </button>
+    </form>
+</div>
 
 <!-- Password Field -->
 <div class="col-sm-12">
