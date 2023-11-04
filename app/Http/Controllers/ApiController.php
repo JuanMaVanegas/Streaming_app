@@ -25,14 +25,13 @@ class ApiController extends Controller
         return response()->json($productos);
     }
     public function transactions(Request $request){
-        if($request->has('id')){
+        if($request->has('amount')){
             $amount = $request->input('amount');
-            $id = $request->input('id');
-            $transactions = Payment::where('id', $id)->get();
-            $transactions = Payment::where('amount', $amount)->get();
+            $transactions = Payment::where('amount', '=', $amount)->get();
         }else{
             $transactions = Payment::all();
         }
         return response()->json($transactions);
     }
+    
 }
